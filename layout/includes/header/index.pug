@@ -31,7 +31,7 @@ else
 - const isFixedClass = theme.nav.fixed ? ' fixed' : ''
 
 header#page-header(class=`${isHomeClass+isFixedClass}` style=bg_img)
-  !=partial('includes/header/nav', {}, {cache: true})
+  !=partial('includes/header/nav', {}, {cache: false})
   if top_img !== false
     if is_post()
       include ./post-info.pug

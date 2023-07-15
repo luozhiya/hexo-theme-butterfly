@@ -1,10 +1,21 @@
+- var pageTitle
+- is_archive() ? page.title = findArchivesTitle(page, theme.menu, date) : ''
+- if (is_tag()) pageTitle = _p('page.tag') + ': ' + page.tag
+- else if (is_category()) pageTitle = _p('page.category') + ': ' + page.category
+- else if (is_current('/404.html', [strict])) pageTitle = _p('error404')
+- else pageTitle = page.title || config.title || ''
+
+- var isSubtitle = config.subtitle ? ' - ' + config.subtitle : ''
+- var tabTitle = is_home() || !pageTitle ? config.title + isSubtitle : pageTitle
+
 nav#nav
   span#blog-info
-    a(href=url_for('/') title=config.title)
+    //- a(href="javascript:btf.scrollToDest(0, 500);" title=config.title)
+    a(href=url_for('/') title=config.title)  
       if theme.nav.logo
         img.site-icon(src=url_for(theme.nav.logo))
       if theme.nav.display_title
-        span.site-name=config.title
+        span.site-name=tabTitle
     
   #menus
     if (theme.algolia_search.enable || theme.local_search.enable || theme.docsearch.enable)
