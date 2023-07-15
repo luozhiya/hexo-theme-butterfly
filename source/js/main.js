@@ -342,7 +342,8 @@ document.addEventListener('DOMContentLoaded', function () {
         if (currentTop === 0) {
           $header.classList.remove('nav-fixed', 'nav-visible')
         }
-        $rightside.style.cssText = "opacity: ''; transform: ''"
+        // $rightside.style.cssText = "opacity: ''; transform: ''"
+        $rightside.style.cssText = 'opacity: 0.8; transform: translateX(-58px)'
       }
 
       isShowPercent && rightsideScrollPercent(currentTop)
